@@ -107,8 +107,3 @@ if __name__ == "__main__":
     for IO_file in IO_files:
         with ThreadPoolExecutor(max_workers=6) as executor:
             executor.submit(solve2, open(IO_file[0], "r"), open(IO_file[1], "w"))
-            # f = open(IO_file[0], "r")
-            # w = open(IO_file[1], "w")
-            # executor.submit(solve2, f, w)
-            # f.close()
-            # w.close()
