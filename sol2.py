@@ -1,6 +1,8 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
 
+res = 0
+
 
 class Library:
     def __init__(self, i, N, T, M, books):
@@ -93,6 +95,8 @@ def solve2(f, w):
             string += str(scanned_book) + " "
         w.write(string + "\n")
     print(f"total_scanned_books_score : {total_scanned_books_score}")
+    global res
+    res += total_scanned_books_score
 
 
 if __name__ == "__main__":
@@ -107,3 +111,5 @@ if __name__ == "__main__":
     for IO_file in IO_files:
         with ThreadPoolExecutor(max_workers=6) as executor:
             executor.submit(solve2, open(IO_file[0], "r"), open(IO_file[1], "w"))
+
+    print(f"score : {res}")
